@@ -23,7 +23,12 @@ export default function Posts() {
                 !posts ? ("No data found") : (
                     <table>
                         <thead>
-                            
+                            <tr>
+                                <th>Id</th>
+                                <th>User Id</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                            </tr>
                         </thead>
                         <tbody></tbody>
                     </table>
