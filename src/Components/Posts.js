@@ -49,6 +49,13 @@ export default function Posts() {
                     </table>
                 )
             }
+            <nav>
+                <ul className='pagination'>
+                    <li className='page-link'>1</li>
+                    <li className='page-link'>2</li>
+                    <li className='page-link'>3</li>
+                </ul>
+            </nav>
         </div>
     )
 }
