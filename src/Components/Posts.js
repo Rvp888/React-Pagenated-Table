@@ -30,7 +30,17 @@ export default function Posts() {
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            {
+                                posts.map((post, index) => (
+                                    <tr key={index}>
+                                        <td>{post.id}</td>
+                                        <td>{post.userId}</td>
+                                        <td>{post.title}</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
                     </table>
                 )
             }
