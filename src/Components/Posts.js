@@ -61,7 +61,9 @@ export default function Posts() {
                 <ul className='pagination'>
                     {
                         pages.map((page) => (
-                            <li className='page-link'>{page}</li>
+                            <li className={page === currentPage ? "page-item active" : "page-item"}>
+                                <p className='page-link'>{page}</p>
+                            </li>
                         ))
                     }
                 </ul>
