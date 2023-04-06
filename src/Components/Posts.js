@@ -9,12 +9,14 @@ const pageSize = 10;
 export default function Posts() {
 
     const [ posts, setPosts ] = useState();
+    const [ paginatedPosts, setPaginatedPosts ] = useState();
 
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/todos")
         .then(res => {
             console.log(res.data);
             setPosts(res.data);
+            setPaginatedPosts( _(res.data).slice(0).take(pageSize).value() )
         })
     },[]);
 
@@ -58,7 +60,7 @@ export default function Posts() {
                 <ul className='pagination'>
                     {
                         pages.map((page) => (
-                            <li className='page-link'>1</li>
+                            <li className='page-link'>{page}</li>
                         ))
                     }
                 </ul>
