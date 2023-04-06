@@ -25,6 +25,14 @@ export default function Posts() {
     if(pageCount === 1) return null;
     const pages = _.range(1, pageCount+1);
 
+    const pagination = (pageNo) => {
+        setCurrentPage(pageNo);
+        const startIndex = (pageNo - 1) * pageSize;
+        const paginatedPost = _(posts).slice(startIndex).take(pageSize).value();
+        setPaginatedPosts(paginatedPost);
+    }
+
+
     return (
         <div>
             {
@@ -62,7 +70,7 @@ export default function Posts() {
                     {
                         pages.map((page) => (
                             <li className={page === currentPage ? "page-item active" : "page-item"}>
-                                <p className='page-link'>{page}</p>
+                                <p className='page-link' onClick={()=>pagination(page)}>{page}</p>
                             </li>
                         ))
                     }
