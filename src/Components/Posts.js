@@ -56,9 +56,11 @@ export default function Posts() {
             }
             <nav className='d-flex justify-content-center'>
                 <ul className='pagination'>
-                    <li className='page-link'>1</li>
-                    <li className='page-link'>2</li>
-                    <li className='page-link'>3</li>
+                    {
+                        pages.map((page) => (
+                            <li className='page-link'>1</li>
+                        ))
+                    }
                 </ul>
             </nav>
         </div>
