@@ -21,7 +21,7 @@ export default function Posts() {
         <div>
             {
                 !posts ? ("No data found") : (
-                    <table>
+                    <table className='table'>
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -37,6 +37,11 @@ export default function Posts() {
                                         <td>{post.id}</td>
                                         <td>{post.userId}</td>
                                         <td>{post.title}</td>
+                                        <td>
+                                            <p className={post.completed ? "btn btn-success" : "btn btn-danger"}>
+                                                {post.completed ? "Completed" : "Pending"}
+                                            </p>
+                                        </td>
                                     </tr>
                                 ))
                             }
