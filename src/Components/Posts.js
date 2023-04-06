@@ -12,13 +12,23 @@ export default function Posts() {
         axios.get("https://jsonplaceholder.typicode.com/todos")
         .then(res => {
             console.log(res.data);
+            setPosts(res.data);
         })
     },[]);
 
 
     return (
         <div>
-            posts
+            {
+                !posts ? ("No data found") : (
+                    <table>
+                        <thead>
+                            
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                )
+            }
         </div>
     )
 }
