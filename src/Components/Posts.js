@@ -10,6 +10,7 @@ export default function Posts() {
 
     const [ posts, setPosts ] = useState();
     const [ paginatedPosts, setPaginatedPosts ] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
         axios.get("https://jsonplaceholder.typicode.com/todos")
@@ -27,7 +28,7 @@ export default function Posts() {
     return (
         <div>
             {
-                !posts ? ("No data found") : (
+                !paginatedPosts ? ("No data found") : (
                     <table className='table'>
                         <thead>
                             <tr>
@@ -39,7 +40,7 @@ export default function Posts() {
                         </thead>
                         <tbody>
                             {
-                                posts.map((post, index) => (
+                                paginatedPosts.map((post, index) => (
                                     <tr key={index}>
                                         <td>{post.id}</td>
                                         <td>{post.userId}</td>
