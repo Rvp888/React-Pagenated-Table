@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import _ from 'lodash';
 
 
+const pageSize = 10;
 export default function Posts() {
 
     const [ posts, setPosts ] = useState();
@@ -16,6 +18,9 @@ export default function Posts() {
         })
     },[]);
 
+    const pageCount = posts ? Math.ceil(posts.length/pageSize) : 0;
+    if(pageCount === 1) return null;
+    const pages = _.range(1, pageCount+1);
 
     return (
         <div>
@@ -49,7 +54,7 @@ export default function Posts() {
                     </table>
                 )
             }
-            <nav>
+            <nav className='d-flex justify-content-center'>
                 <ul className='pagination'>
                     <li className='page-link'>1</li>
                     <li className='page-link'>2</li>
